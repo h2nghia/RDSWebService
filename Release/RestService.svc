@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RDSWebService.RestService" CodeBehind="RestService.svc.cs" %>

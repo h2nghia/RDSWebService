@@ -1,0 +1,11 @@
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\RDSWebService.dll
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\RDSWebService.pdb
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\Newtonsoft.Json.dll
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\Newtonsoft.Json.xml
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\obj\Release\RDSWebService.csprojResolveAssemblyReference.cache
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\obj\Release\RDSWebService.dll
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\obj\Release\RDSWebService.pdb
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\NLog.config
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\NLog.dll
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\NLog.xml
+C:\SourceCode\RailDeliveryServices\RDSWebService\RDSWebService\bin\RDSWebService.dll.config
