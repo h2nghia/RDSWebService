@@ -87,6 +87,7 @@ namespace RDSWebService.BusinessLogic
             response.LocationServiceInterval = WebConfigurationManager.AppSettings["LocationServiceIntervalInMillisecond"];
             response.LocationUpdateInterval = WebConfigurationManager.AppSettings["LocationUpdateIntervalInMillisecond"];
             response.FastestLocationUpdateInterval = WebConfigurationManager.AppSettings["FastestLocationUpdateIntervalInMillisecond"];
+            response.SendGpsMessageWhenOffline = WebConfigurationManager.AppSettings["SendGpsMessageWhenOffline"];
         }
 
         private void UpdateLastLoginDateTime(SqlConnection connection, int driverNo)
