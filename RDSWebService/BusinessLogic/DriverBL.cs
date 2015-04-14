@@ -3,6 +3,7 @@ using RDSWebService.ResponseObjects;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 namespace RDSWebService.BusinessLogic
 {
@@ -44,6 +45,8 @@ namespace RDSWebService.BusinessLogic
                                     {
                                         response.Authentic = true;
                                         response.ResponseStatusInternal = ResponseStatus.Success;
+
+                                        UpdateMobileSettings(response);
                                         UpdateLastLoginDateTime(connection, request.DriverNo);
                                     }
                                     else
@@ -73,6 +76,17 @@ namespace RDSWebService.BusinessLogic
             }
 
             return response;
+        }
+
+
+        private void UpdateMobileSettings(AuthenticationResponse response)
+        {
+            response.DownloadOrderInterval = WebConfigurationManager.AppSettings["DownloadOrderIntervalInMillisecond"];
+            response.DownloadMessageInterval = WebConfigurationManager.AppSettings["DownloadMessageIntervalInMillisecond"];
+            response.UploadServiceInterval = WebConfigurationManager.AppSettings["UploadServiceIntervalInMillisecond"];
+            response.LocationServiceInterval = WebConfigurationManager.AppSettings["LocationServiceIntervalInMillisecond"];
+            response.LocationUpdateInterval = WebConfigurationManager.AppSettings["LocationUpdateIntervalInMillisecond"];
+            response.FastestLocationUpdateInterval = WebConfigurationManager.AppSettings["FastestLocationUpdateIntervalInMillisecond"];
         }
 
         private void UpdateLastLoginDateTime(SqlConnection connection, int driverNo)
