@@ -17,6 +17,8 @@ namespace RDSWebService.BusinessObjects
 
         public DateTime? AppointmentDateTime { get; set; }
 
+        public string AppointmentTime { get; set; }
+
         public string MoveType { get; set; }
 
         public string ContainerNo { get; set; }

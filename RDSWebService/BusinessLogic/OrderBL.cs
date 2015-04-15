@@ -46,6 +46,7 @@ namespace RDSWebService.BusinessLogic
                             {
                                 Order order = new Order();
                                 order.AppointmentDateTime = reader["AppointmentDateTime"] != DBNull.Value ? (DateTime?)reader["AppointmentDateTime"] : null;
+                                order.AppointmentTime = reader["AppointmentTime"] != DBNull.Value ? (string)reader["AppointmentTime"] : string.Empty;
                                 order.BookingNo = reader["BookingNo"] != DBNull.Value ? (string)reader["BookingNo"] : string.Empty;
                                 order.ChassisNo = reader["ChassisNo"] != DBNull.Value ? (string)reader["ChassisNo"] : string.Empty;
                                 order.ContainerNo = reader["ContainerNo"] != DBNull.Value ? (string)reader["ContainerNo"] : string.Empty;
