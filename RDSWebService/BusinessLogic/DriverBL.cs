@@ -46,7 +46,6 @@ namespace RDSWebService.BusinessLogic
                                         response.Authentic = true;
                                         response.ResponseStatusInternal = ResponseStatus.Success;
 
-                                        UpdateMobileSettings(response);
                                         UpdateLastLoginDateTime(connection, request.DriverNo);
                                     }
                                     else
@@ -78,18 +77,29 @@ namespace RDSWebService.BusinessLogic
             return response;
         }
 
-
-        private void UpdateMobileSettings(AuthenticationResponse response)
+        public SettingResponse GetSettings()
         {
-            response.DownloadOrderInterval = WebConfigurationManager.AppSettings["DownloadOrderIntervalInMillisecond"];
-            response.DownloadMessageInterval = WebConfigurationManager.AppSettings["DownloadMessageIntervalInMillisecond"];
-            response.UploadServiceInterval = WebConfigurationManager.AppSettings["UploadServiceIntervalInMillisecond"];
-            response.LocationServiceInterval = WebConfigurationManager.AppSettings["LocationServiceIntervalInMillisecond"];
-            response.LocationUpdateInterval = WebConfigurationManager.AppSettings["LocationUpdateIntervalInMillisecond"];
-            response.FastestLocationUpdateInterval = WebConfigurationManager.AppSettings["FastestLocationUpdateIntervalInMillisecond"];
-            response.SendGpsMessageWhenOffline = WebConfigurationManager.AppSettings["SendGpsMessageWhenOffline"];
+             SettingResponse settingResponse = new SettingResponse();
+            try{
+                settingResponse.DownloadOrderInterval = WebConfigurationManager.AppSettings["DownloadOrderIntervalInMillisecond"];
+                settingResponse.DownloadMessageInterval = WebConfigurationManager.AppSettings["DownloadMessageIntervalInMillisecond"];
+                settingResponse.UploadServiceInterval = WebConfigurationManager.AppSettings["UploadServiceIntervalInMillisecond"];
+                settingResponse.LocationServiceInterval = WebConfigurationManager.AppSettings["LocationServiceIntervalInMillisecond"];
+                settingResponse.LocationUpdateInterval = WebConfigurationManager.AppSettings["LocationUpdateIntervalInMillisecond"];
+                settingResponse.FastestLocationUpdateInterval = WebConfigurationManager.AppSettings["FastestLocationUpdateIntervalInMillisecond"];
+                settingResponse.SendGpsMessageWhenOffline = WebConfigurationManager.AppSettings["SendGpsMessageWhenOffline"];
+
+                settingResponse.ResponseStatusInternal = ResponseStatus.Success;
+                settingResponse.ResponseMessage = "Setting Received";
+            }
+            catch(Exception ex){
+                settingResponse.ResponseStatusInternal = ResponseStatus.Exception;
+                settingResponse.ResponseMessage = ex.Message;
+            }
+            return settingResponse;
         }
 
+     
         private void UpdateLastLoginDateTime(SqlConnection connection, int driverNo)
         {
             string commandText = "UPDATE Driver " +

@@ -25,6 +25,8 @@ namespace RDSWebService
                 case "driver/authenticate":
                     AuthenticationRequest authenticationRequest = JsonConvert.DeserializeObject<AuthenticationRequest>(Utils.GetSerializedData(jsonStream));
                     return new MemoryStream(JsonConvert.SerializeObject(new DriverBL().Authenticate(authenticationRequest)).ToByteArray());
+                case "driver/get_setting":
+                    return new MemoryStream(JsonConvert.SerializeObject(new DriverBL().GetSettings()).ToByteArray());
 
                 case "message/create":
                     Message message = JsonConvert.DeserializeObject<Message>(Utils.GetSerializedData(jsonStream));
