@@ -88,6 +88,7 @@ namespace RDSWebService.BusinessLogic
                 settingResponse.LocationUpdateInterval = WebConfigurationManager.AppSettings["LocationUpdateIntervalInMillisecond"];
                 settingResponse.FastestLocationUpdateInterval = WebConfigurationManager.AppSettings["FastestLocationUpdateIntervalInMillisecond"];
                 settingResponse.SendGpsMessageWhenOffline = WebConfigurationManager.AppSettings["SendGpsMessageWhenOffline"];
+                settingResponse.SyncTimeInSeconds = WebConfigurationManager.AppSettings["SyncTimeInSeconds"];
 
                 settingResponse.ResponseStatusInternal = ResponseStatus.Success;
                 settingResponse.ResponseMessage = "Setting Received";

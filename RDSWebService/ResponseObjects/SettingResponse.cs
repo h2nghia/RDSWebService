@@ -14,5 +14,6 @@ namespace RDSWebService.ResponseObjects
         public string LocationUpdateInterval { get; set; }
         public string FastestLocationUpdateInterval { get; set; }
         public string SendGpsMessageWhenOffline { get; set; }
+        public string SyncTimeInSeconds { get; set; }
     }
 }

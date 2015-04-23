@@ -43,13 +43,7 @@ namespace RDSWebService.BusinessObjects
 
         public string ManifestNo { get; set; }
 
-        public string Remark1 { get; set; }
-
-        public string Remark2 { get; set; }
-
-        public string Remark3 { get; set; }
-
-        public string Remark4 { get; set; }
+        public string Comments { get; set; }
 
         public List<Leg> Legs { get; set; }
     }

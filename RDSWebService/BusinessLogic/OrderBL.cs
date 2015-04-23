@@ -60,21 +60,20 @@ namespace RDSWebService.BusinessLogic
                                 order.PickupNo = reader["PickupNo"] != DBNull.Value ? (string)reader["PickupNo"] : string.Empty;
                                 order.PONo = reader["PONo"] != DBNull.Value ? (string)reader["PONo"] : string.Empty;
                                 order.RailNo = reader["RailNo"] != DBNull.Value ? (string)reader["RailNo"] : string.Empty;
-                                order.Remark1 = reader["Remark1"] != DBNull.Value ? (string)reader["Remark1"] : string.Empty;
-                                order.Remark2 = reader["Remark2"] != DBNull.Value ? (string)reader["Remark2"] : string.Empty;
-                                order.Remark3 = reader["Remark3"] != DBNull.Value ? (string)reader["Remark3"] : string.Empty;
-                                order.Remark4 = reader["Remark4"] != DBNull.Value ? (string)reader["Remark4"] : string.Empty;
+                                order.Comments = reader["Comments"] != DBNull.Value ? (string)reader["Comments"] : string.Empty;
+                             
                                 order.ScaleFlag = reader["ScaleFlag"] != DBNull.Value ? (bool)reader["ScaleFlag"] : false;
                                 order.TripNo = reader["TripNo"] != DBNull.Value ? (string)reader["TripNo"] : string.Empty;
                                 order.VoyageNo = reader["VoyageNo"] != DBNull.Value ? (string)reader["VoyageNo"] : string.Empty;
                                 order.WeightFlag = reader["WeightFlag"] != DBNull.Value ? (bool)reader["WeightFlag"] : false;
-
+                                
                                 order.Legs = GetLegs(order.FileNo);
 
                                 orderList.Add(order);
                             }
 
                             response.Orders = orderList;
+                            response.LastRequestTime = DateTime.UtcNow;
                             response.ResponseStatusInternal = ResponseStatus.Success;
                         }
                     }
@@ -143,7 +142,7 @@ namespace RDSWebService.BusinessLogic
                                 leg.ZipCodeFrom = reader["ZipCodeFrom"] != DBNull.Value ? (string)reader["ZipCodeFrom"] : string.Empty;
                                 leg.ZipCodeTo = reader["ZipCodeTo"] != DBNull.Value ? (string)reader["ZipCodeTo"] : string.Empty;
 
-                                leg.LegExtras = GetLegExtras(fileNo, leg.LegNo);
+                                //leg.LegExtras = GetLegExtras(fileNo, leg.LegNo);
 
                                 legList.Add(leg);
                             }
